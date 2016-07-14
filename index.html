@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<canvas width="802" height="802" id="myCanvas" style="background-color: ivory">
+
+</canvas>
+<div>
+
+</div>
+
+<script>
+
+
+    var holst=document.querySelector('canvas');
+
+    var holst2D=holst.getContext('2d');
+    var w = +holst.getAttribute('width');
+    var h=(w/8);
+    console.log(h,w);
+
+    holst2D.beginPath();
+
+    /*
+  //разметка, не особо нужна, но прикольный цикл
+    for (i=0;i<9;i++)
+    {
+        x=i*100;
+
+        holst2D.moveTo(x,0);
+        holst2D.lineTo(x,800);
+        //holst2D.stroke();
+        y = i*100;
+        holst2D.moveTo(0, y);
+        holst2D.lineTo(800,y);
+        holst2D.stroke();
+    }
+*/
+
+    holst2D.strokeRect(0,0,w,w);
+    for(i=0;i<8;i++)
+        {
+        for (j=0;j<8;j++)
+            {
+                if ((!(i % 2) & !(j%2))||(i % 2 & j%2) )
+                {
+                    x = i*h;
+                    y = j*h;
+                    holst2D.fillRect(x, y, h, h)
+                }
+            }
+        }
+
+
+
+
+</script>
+</body>
+</html>
